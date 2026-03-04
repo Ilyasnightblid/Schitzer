@@ -6,6 +6,7 @@ A pnpm workspace monorepo managed with TurboRepo.
 
 - Node.js 20+
 - pnpm
+- Docker (for local PostgreSQL via Docker Compose)
 
 ## Workspace Layout
 
@@ -17,6 +18,42 @@ A pnpm workspace monorepo managed with TurboRepo.
 
 ```bash
 pnpm install
+cp .env.example .env
+cp apps/api/.env.example apps/api/.env
+```
+
+## Local PostgreSQL (Docker Compose)
+
+Start PostgreSQL in the background:
+
+```bash
+docker compose up -d postgres
+```
+
+Stop PostgreSQL while keeping data:
+
+```bash
+docker compose stop postgres
+```
+
+Stop and remove the container/network (keeps named volume data):
+
+```bash
+docker compose down
+```
+
+Stop and remove everything including DB data volume:
+
+```bash
+docker compose down -v
+```
+
+The API expects `DATABASE_URL` and defaults in `.env.example` match `docker-compose.yml` credentials.
+
+Example:
+
+```env
+DATABASE_URL=postgresql://schitzer:schitzer@localhost:5432/schitzer
 ```
 
 ## Scripts
