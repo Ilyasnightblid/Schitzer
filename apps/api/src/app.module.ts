@@ -10,6 +10,7 @@ import { AppController } from './app.controller';
       validationSchema: Joi.object({
         NODE_ENV: Joi.string().valid('development', 'test', 'production').default('development'),
         PORT: Joi.number().port().default(3001),
+        DATABASE_URL: Joi.string().uri({ scheme: ['postgres', 'postgresql'] }).required(),
       }),
       validationOptions: {
         abortEarly: false,
