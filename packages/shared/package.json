@@ -1,0 +1,17 @@
+{
+  "name": "@schitzer/shared",
+  "version": "0.0.0",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -w -p tsconfig.json",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "echo \"No tests yet for shared\""
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
