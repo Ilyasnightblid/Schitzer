@@ -6,3 +6,4 @@ dist
 coverage
 .env*
 !apps/web/.env.example
+!apps/api/.env.example

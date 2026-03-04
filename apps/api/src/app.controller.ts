@@ -1,10 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { greeting } from '@schitzer/shared';
 
-@Controller()
+@Controller('health')
 export class AppController {
   @Get()
-  getHello(): string {
-    return greeting('Schitzer API');
+  getHealth() {
+    return {
+      status: 'ok',
+      name: 'Schitzer API',
+    };
   }
 }
